@@ -15,7 +15,11 @@ O comando acima irá executar o programa com os parâmetros fornecidos.
 
 O programa cria, automaticamente, 3 ligas (Campeonato Brasileiro, Campeonato Carioca e Libertadores) e T times em cada (valor de T padrão ou recebido por linha de comando). 
 
-A criação automática se dá pois o construtor da classe Liga 
+A criação automática se dá pois o construtor da classe Liga inicializa um vetor com T times, além de dar nomes e o tamanho N do vetor de anos que cada time possui. O construtor da classe Ano gera um número aleatório para os GolsSofridos e GolsEfetuados.
+
+Dessa forma, ao inicializar as 3 ligas, são gerados os T times para cada indice do vetor de ligas (na verdade são objetos dentro do objetos de ligas) e cada time tem N objetos de anos.
+
+
 
 ### 4. Estrutura das classes
 
