@@ -20,6 +20,7 @@ class Time{
         std::string verificaNome(std::string);
 
     public:
+        
         void setNome(std::string);
         std::string getNome();
 

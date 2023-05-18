@@ -12,7 +12,7 @@ int main(int argc, char *argv[]){
 
     Liga ligas[3] = {{"Campeonato Brasileiro"}, {"Copa do Brasil"}, {"Libertadores"}};
     
-    for(int i = 0; i < 3; i++) ligas[i].getTimes(); // mostra nome de cada liga e seus respectivos times
+    //for(int i = 0; i < 3; i++) ligas[i].getTimes(); // mostra nome de cada liga e seus respectivos times
 
 
     for(unsigned int i = 0; i < 3; i++){
@@ -21,10 +21,10 @@ int main(int argc, char *argv[]){
 
             ligas[i].times[j].getAnos();
 
-            std::cout << "Média movel dos ultimos 3 anos:" << std::endl;
+            std::cout << "Média movel dos ultimos 5 anos:" << std::endl;
 
-            ligas[i].times[j].setMediaMovelGolsEfetuados();
-            ligas[i].times[i].setMediaMovelGolsSofridos();
+            ligas[i].times[j].setMediaMovelGolsEfetuados(5);
+            ligas[i].times[j].setMediaMovelGolsSofridos(5);
             std::cout << "GE: " << ligas[i].times[j].getMediaMovelGolsEfetuados() << std::endl;
             std::cout << "GS: " << ligas[i].times[j].getMediaMovelGolsSofridos() << std::endl;
             std::cout << std::endl;

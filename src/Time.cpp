@@ -68,9 +68,9 @@ float Time::getMediaMovelGolsEfetuados(){
 }
 
 void Time::setMediaMovelGolsSofridos(unsigned int numeroAnosAnteriores){
-    unsigned int temp;
+    unsigned int temp = 0;
 
-    if(numeroAnosAnteriores > anos.size()){
+    if(numeroAnosAnteriores >= anos.size()){
         std::cout << "Tentanto calcular a media movel dos " + std::to_string(numeroAnosAnteriores) + \
         " ultimos anos, mas só se têm salvo " + std::to_string(anos.size()) + " anos.\n" << std::endl;
         mediaMovelGolsSofridos = 0;
@@ -79,22 +79,20 @@ void Time::setMediaMovelGolsSofridos(unsigned int numeroAnosAnteriores){
 
     for(unsigned int i = 0; i < numeroAnosAnteriores; i++) temp += getGolsSofridosNoAno(anos.size()-1-i);
 
-    std::cout << temp << std::endl;
-    mediaMovelGolsSofridos = temp/numeroAnosAnteriores;
+    mediaMovelGolsSofridos = static_cast<float>(temp)/static_cast<float>(numeroAnosAnteriores);
 }
 
 void Time::setMediaMovelGolsEfetuados(unsigned int numeroAnosAnteriores){
-    unsigned int temp;
+    unsigned int temp = 0;
 
-    if(numeroAnosAnteriores > anos.size()){
+    if(numeroAnosAnteriores >= anos.size()){
         std::cout << "Tentanto calcular a media movel dos " + std::to_string(numeroAnosAnteriores) + \
         " ultimos anos, mas só se têm salvo " + std::to_string(anos.size()) + " anos.\n" << std::endl;
         mediaMovelGolsEfetuados = 0;
         return;
     }
 
-    for(unsigned int i = 0; i < numeroAnosAnteriores; i++) temp += getGolsEfetuadosNoAno(anos.size()-1-i);
+    for(unsigned int i = 0; i < numeroAnosAnteriores; i++)temp += getGolsEfetuadosNoAno((anos.size()-1-i));
     
-    std::cout << temp << std::endl;
-    mediaMovelGolsEfetuados = temp/numeroAnosAnteriores;
+    mediaMovelGolsEfetuados = static_cast<float>(temp)/static_cast<float>(numeroAnosAnteriores);
 }

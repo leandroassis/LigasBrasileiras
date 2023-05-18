@@ -1,6 +1,6 @@
 SRC = $(wildcard src/*.cpp)
 OBJ = $(SRC:.cpp=.o)
-CPPFLAGS = -Wall
+CPPFLAGS = -Wall -std=c++11
 
 %.o: %.cpp
 	g++ -c -o $@ $< $(CPPFLAGS)
