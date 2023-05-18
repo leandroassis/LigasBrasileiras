@@ -4,33 +4,21 @@
 #include "Liga.hpp"
 #include "Time.hpp"
 #include "Ano.hpp"
-
+#include "main.hpp"
     
 int main(int argc, char *argv[]){
 
-    srand((unsigned) time(NULL));
+    unsigned int totalAnos = 0, totalTimes = 0;
+    int status;
 
-    Liga ligas[3] = {{"Campeonato Brasileiro"}, {"Copa do Brasil"}, {"Libertadores"}};
+    srand((unsigned) time(NULL)); // inicializa o gerador de números aleatórios
     
-    //for(int i = 0; i < 3; i++) ligas[i].getTimes(); // mostra nome de cada liga e seus respectivos times
+    verificaArgumentos(argc, argv, &totalAnos, &totalTimes); // verifica os argumentos passados na linha de comando
 
+    Liga ligas[3] = {{"Campeonato Brasileiro", totalTimes, totalAnos}, {"Copa do Brasil", totalTimes, totalAnos}, \
+    {"Libertadores", totalTimes, totalAnos}}; // cria as ligas
 
-    for(unsigned int i = 0; i < 3; i++){
-            std::cout << ligas[i].getNome() << std::endl;
-        for(unsigned int j = 0; j < ligas[i].times.size(); j++){
-
-            ligas[i].times[j].getAnos();
-
-            std::cout << "Média movel dos ultimos 5 anos:" << std::endl;
-
-            ligas[i].times[j].setMediaMovelGolsEfetuados(5);
-            ligas[i].times[j].setMediaMovelGolsSofridos(5);
-            std::cout << "GE: " << ligas[i].times[j].getMediaMovelGolsEfetuados() << std::endl;
-            std::cout << "GS: " << ligas[i].times[j].getMediaMovelGolsSofridos() << std::endl;
-            std::cout << std::endl;
-        }
-        std::cout << std::endl;
-    }
+    menu(); // chama o menu principal
 
     return 0;
 }

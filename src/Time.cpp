@@ -67,6 +67,7 @@ float Time::getMediaMovelGolsEfetuados(){
     return mediaMovelGolsEfetuados;
 }
 
+// corrigir para receber o ano atual como parâmetro
 void Time::setMediaMovelGolsSofridos(unsigned int numeroAnosAnteriores){
     unsigned int temp = 0;
 
