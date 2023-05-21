@@ -19,7 +19,7 @@ A criação automática se dá pois o construtor da classe Liga inicializa um ve
 
 Dessa forma, ao inicializar as 3 ligas, são gerados os T times para cada indice do vetor de ligas (na verdade são objetos dentro do objetos de ligas) e cada time tem N objetos de anos.
 
-
+As classes possuem métodos para acessar os times na liga, os anos de cada time e os gols sofridos e efetuados de cada time em cada ano. Além disso, há métodos para calcular a média de gols sofridos e efetuados de cada time em cada liga. As lógicas implementadas para solucionar os problemas passados são realizados nas funções menuX, uma para cada problema, utilizando esse set de métodos.
 
 ### 4. Estrutura das classes
 
