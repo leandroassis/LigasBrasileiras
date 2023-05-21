@@ -59,11 +59,13 @@ unsigned int Time::getGolsEfetuadosNoAno(unsigned int indiceAno){
     return 0;
 }
 
-float Time::getMediaMovelGolsSofridos(){
+float Time::getMediaMovelGolsSofridos(unsigned numeroAnosAnteriores, unsigned int deslocamento){
+    setMediaMovelGolsSofridos(numeroAnosAnteriores, deslocamento);
     return mediaMovelGolsSofridos;
 }
 
-float Time::getMediaMovelGolsEfetuados(){
+float Time::getMediaMovelGolsEfetuados(unsigned numeroAnosAnteriores, unsigned int deslocamento){
+    setMediaMovelGolsEfetuados(numeroAnosAnteriores, deslocamento);
     return mediaMovelGolsEfetuados;
 }
 
@@ -110,4 +112,14 @@ void Time::setMediaMovelGolsEfetuados(unsigned int numeroAnosAnteriores, unsigne
     for(unsigned int i = 0; i < numeroAnosAnteriores; i++)temp += getGolsEfetuadosNoAno((anoAtual-1-i));
     
     mediaMovelGolsEfetuados = static_cast<float>(temp)/static_cast<float>(numeroAnosAnteriores);
+}
+
+void Time::setSaldoGolsTotal(){
+    saldoGolsTotal = 0;
+
+    for(unsigned int i = 0; i < anos.size(); i++) saldoGolsTotal += (anos[i].getGolsEfetuados() - anos[i].getGolsSofridos());
+}
+
+int Time::getSaldoGolsTotal(){
+    return saldoGolsTotal;
 }

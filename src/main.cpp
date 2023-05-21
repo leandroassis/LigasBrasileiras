@@ -22,9 +22,9 @@ int main(int argc, char *argv[]){
         totalTimes = strtol(argv[1], NULL, 10);
         totalAnos = strtol(argv[2], NULL, 10);
 
-        if(totalTimes < 0 || totalAnos < 0){
+        if(totalTimes <= 0 || totalAnos <= 0){
             std::cout << "Argumentos invalidos" << std::endl;
-            std::cout << "Numero de anos e times nao pode ser zero." << std::endl;
+            std::cout << "Numero de anos e times nao pode ser zero ou negativos." << std::endl;
             return 1;
         }
     }

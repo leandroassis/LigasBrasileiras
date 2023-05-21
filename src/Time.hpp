@@ -16,6 +16,8 @@ class Time{
         float mediaMovelGolsSofridos;
         float mediaMovelGolsEfetuados;
 
+        int saldoGolsTotal;
+
         void incluiNovoAno(Ano);
         std::string verificaNome(std::string);
 
@@ -30,12 +32,13 @@ class Time{
         unsigned int getGolsSofridosNoAno(unsigned int); // retorna num gols sofridos no ano 0 <= n <= maxAnos
         unsigned int getGolsEfetuadosNoAno(unsigned int);
 
-        float getMediaMovelGolsSofridos();
-        float getMediaMovelGolsEfetuados();
+        float getMediaMovelGolsSofridos(unsigned = 3, unsigned = 0);
+        float getMediaMovelGolsEfetuados(unsigned = 3, unsigned = 0);
         void setMediaMovelGolsSofridos(unsigned int = 3, unsigned int = 0);
         void setMediaMovelGolsEfetuados(unsigned int = 3, unsigned int = 0);
 
-
+        void setSaldoGolsTotal();
+        int getSaldoGolsTotal();
 };
 
 #endif

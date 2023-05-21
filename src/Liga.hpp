@@ -16,10 +16,9 @@ class Liga{
     public:
         Liga(std::string, unsigned int = MAX_TIMES, unsigned int = INTERVALO_TEMPO);
         
-        unsigned getNumTimes(void);
         std::string getNome(void);
         std::vector<Time> getTimes();
-
+        unsigned int getNumeroTimesNaLiga();
 };
 
 #endif

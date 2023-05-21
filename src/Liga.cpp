@@ -15,10 +15,6 @@ Liga::Liga(std::string nome, unsigned int totalTimes, unsigned int totalAnos){
     }
 }
 
-unsigned Liga::getNumTimes(void){
-    return times.size();
-}
-
 void Liga::insereTime(Time novoTime){
     if(times.size() < maxTimes) times.push_back(novoTime);
     else std::cout << "O vetor de times da Liga " + nomeLiga + "ja esta no limite maximo.\n" << std::endl;
@@ -34,4 +30,8 @@ std::vector<Time> Liga::getTimes(){
     //std::cout << std::endl;
 
     return times;
+}
+
+unsigned int Liga::getNumeroTimesNaLiga(){
+    return times.size();
 }
