@@ -68,32 +68,46 @@ float Time::getMediaMovelGolsEfetuados(){
 }
 
 // corrigir para receber o ano atual como parâmetro
-void Time::setMediaMovelGolsSofridos(unsigned int numeroAnosAnteriores){
+void Time::setMediaMovelGolsSofridos(unsigned int numeroAnosAnteriores, unsigned int deslocamento){
     unsigned int temp = 0;
+    int anoAtual = anos.size()-1-deslocamento;
 
-    if(numeroAnosAnteriores >= anos.size()){
-        std::cout << "Tentanto calcular a media movel dos " + std::to_string(numeroAnosAnteriores) + \
-        " ultimos anos, mas só se têm salvo " + std::to_string(anos.size()) + " anos.\n" << std::endl;
-        mediaMovelGolsSofridos = 0;
-        return;
-    }
-
-    for(unsigned int i = 0; i < numeroAnosAnteriores; i++) temp += getGolsSofridosNoAno(anos.size()-1-i);
-
-    mediaMovelGolsSofridos = static_cast<float>(temp)/static_cast<float>(numeroAnosAnteriores);
-}
-
-void Time::setMediaMovelGolsEfetuados(unsigned int numeroAnosAnteriores){
-    unsigned int temp = 0;
-
-    if(numeroAnosAnteriores >= anos.size()){
-        std::cout << "Tentanto calcular a media movel dos " + std::to_string(numeroAnosAnteriores) + \
-        " ultimos anos, mas só se têm salvo " + std::to_string(anos.size()) + " anos.\n" << std::endl;
+    if((unsigned) anoAtual >= anos.size() || anoAtual < 0){
+        std::cout << "O valor de ano atual não está na lista de dados.\n" << std::endl;
         mediaMovelGolsEfetuados = 0;
         return;
     }
 
-    for(unsigned int i = 0; i < numeroAnosAnteriores; i++)temp += getGolsEfetuadosNoAno((anos.size()-1-i));
+    if(numeroAnosAnteriores >= (unsigned ) anoAtual + 1){
+        std::cout << "Tentanto calcular a media movel dos " + std::to_string(numeroAnosAnteriores) + \
+        " ultimos anos, mas só se têm salvo " + std::to_string(anos.size() - anoAtual) + " anos antes do ano " + std::to_string(anoAtual) + ".\n" << std::endl;
+        mediaMovelGolsSofridos = 0;
+        return;
+    }
+
+    for(unsigned int i = 0; i < numeroAnosAnteriores; i++) temp += getGolsSofridosNoAno(anoAtual-1-i);
+
+    mediaMovelGolsSofridos = static_cast<float>(temp)/static_cast<float>(numeroAnosAnteriores);
+}
+
+void Time::setMediaMovelGolsEfetuados(unsigned int numeroAnosAnteriores, unsigned int deslocamento){
+    unsigned int temp = 0;
+    int anoAtual = anos.size()-1-deslocamento;
+
+    if((unsigned ) anoAtual >= anos.size() || anoAtual < 0){
+        std::cout << "O valor de ano atual não está na lista de dados.\n" << std::endl;
+        mediaMovelGolsEfetuados = 0;
+        return;
+    }
+
+    if(numeroAnosAnteriores >= (unsigned) anoAtual+1){
+        std::cout << "Tentanto calcular a media movel dos " + std::to_string(numeroAnosAnteriores) + \
+        " ultimos anos, mas só se têm salvo " + std::to_string(anoAtual) + " anos antes do ano atual.\n" << std::endl;
+        mediaMovelGolsEfetuados = 0;
+        return;
+    }
+
+    for(unsigned int i = 0; i < numeroAnosAnteriores; i++)temp += getGolsEfetuadosNoAno((anoAtual-1-i));
     
     mediaMovelGolsEfetuados = static_cast<float>(temp)/static_cast<float>(numeroAnosAnteriores);
 }

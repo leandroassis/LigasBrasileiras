@@ -32,8 +32,8 @@ class Time{
 
         float getMediaMovelGolsSofridos();
         float getMediaMovelGolsEfetuados();
-        void setMediaMovelGolsSofridos(unsigned int = 3);
-        void setMediaMovelGolsEfetuados(unsigned int = 3);
+        void setMediaMovelGolsSofridos(unsigned int = 3, unsigned int = 0);
+        void setMediaMovelGolsEfetuados(unsigned int = 3, unsigned int = 0);
 
 
 };

@@ -9,15 +9,16 @@ class Liga{
         std::string nomeLiga;
         unsigned int maxTimes;
 
+        std::vector<Time> times;
+
         void insereTime(Time);
 
     public:
-        std::vector<Time> times;
-
         Liga(std::string, unsigned int = MAX_TIMES, unsigned int = INTERVALO_TEMPO);
         
+        unsigned getNumTimes(void);
         std::string getNome(void);
-        void getTimes();
+        std::vector<Time> getTimes();
 
 };
 
