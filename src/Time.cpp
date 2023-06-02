@@ -82,7 +82,7 @@ void Time::setMediaMovelGolsSofridos(unsigned int numeroAnosAnteriores, unsigned
 
     if(numeroAnosAnteriores >= (unsigned ) anoAtual + 1){
         std::cout << "Tentanto calcular a media movel dos " + std::to_string(numeroAnosAnteriores) + \
-        " ultimos anos, mas só se têm salvo " + std::to_string(anos.size() - anoAtual) + " anos antes do ano " + std::to_string(anoAtual) + ".\n" << std::endl;
+        " ultimos anos, mas só se têm salvo " + std::to_string(anoAtual) + " anos antes do ano " + std::to_string(anoAtual) + ".\n" << std::endl;
         mediaMovelGolsSofridos = 0;
         return;
     }
@@ -121,5 +121,6 @@ void Time::setSaldoGolsTotal(){
 }
 
 int Time::getSaldoGolsTotal(){
+    setSaldoGolsTotal();
     return saldoGolsTotal;
 }

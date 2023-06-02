@@ -4,6 +4,8 @@
 #include "Liga.hpp"
 #include "Time.hpp"
 #include "Ano.hpp"
+#include "main.hpp"
+
 #include "menu.hpp"
 
 int main(int argc, char *argv[]){
